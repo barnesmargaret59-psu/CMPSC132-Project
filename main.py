@@ -24,18 +24,30 @@ def checker(number, guess):
 
 
 is_correct = False
-print("Welcome to the Nittany Number Game!")
-print("You can choose your own path")
+num_guesses = 0
+print("Welcome to Number Crunch: the best number guessing game!")
+
 level = input("Enter your choice of difficulty: Easy, Medium, or Hard").lower()
 
+#verifies that level choice is real
 if level == "easy" or level == "medium" or level == "hard":
     number = number_generator(level)
     while is_correct == False:
-        #goes until the guess is = to the number, might add a guess limit later
-        curr_guess = int(input("Enter your guess!"))
-        is_correct = checker(number, curr_guess)
+        num_guesses+=1
+        #goes until the guess is = to the number
+        curr_guess = input("Enter your guess!")
+        #makes sure the guess is an int
+        try:
+            curr_guess = int(curr_guess)
+            is_correct = checker(number, curr_guess)
+        except:
+            print("Guess needs to be a number")
+
     print("Correct!")
+    print(f"Number of guesses: {num_guesses}")
+    print("Congratulations!")
+    
 else:
-    print("That's not a difficulty, restart")
+    print("That's not an available difficulty, restart")
 
     
