@@ -22,7 +22,6 @@ def checker(number, guess):
         print("Too low")
         return False
 
-
 is_correct = False
 num_guesses = 0
 print("Welcome to Number Crunch: the best number guessing game!")
